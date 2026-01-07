@@ -91,6 +91,7 @@ body {
     padding: 30px;
     border-radius: 15px;
     font-weight: 800;
+    text-align: justify;
 }
 
 .choixMethode {
@@ -154,11 +155,6 @@ em {
     font-style: normal;
     font-family : 'Poppins', serif;
 }
-
-
-
-
-/* Tooltip styles */
 
 .has-tooltip {
     position: relative;
