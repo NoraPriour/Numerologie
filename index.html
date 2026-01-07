@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerologie</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Numérologie</h1>
+        <h3>Une étude divinatoire basée sur la symbolique des nombres.</h3>
+    </header>
+    <main class="hero-bg">
+        <div class="texteNumerologie">
+            <p>La numérologie est une pratique divinatoire qui s'appuie sur la symbolique des nombres pour mieux
+                comprendre les cycles de vie, les influences invisibles et les dynamiques personnelles. Chaque nombre
+                possède une vibration spécifique qui éclaire certains traits de caractère, potentiels et enjeux. À
+                travers l'étude des nombres, il devient possible de donner du sens aux expériences et aux choix de vie.
+                Cette lecture symbolique offre un regard différent, à la fois intuitif et structuré, sur le chemin
+                personnel.</p><br>
+            <p>Ce site vous propose d'explorer votre chemin de vie à travers la numérologie, grâce à deux méthodes de
+                lecture complémentaires. La méthode en ligne met en évidence les dynamiques et les cycles, tandis que la
+                méthode verticale permet une lecture plus profonde et structurée. Ensemble, elles offrent une approche
+                symbolique et intuitive pour mieux comprendre les influences qui jalonnent votre parcours.</p>
+
+        </div>
+        <div class="container">
+            <p>Choisissez votre méthode de calcul :</p>
+            <div class="choixMethode">
+                <label class="has-tooltip"
+                    data-tooltip="La méthode en ligne consiste à analyser les nombres tels qu'ils apparaissent dans une suite ou un ensemble, en tenant compte de leur ordre et de leurs interactions. Elle permet d'observer les dynamiques, les cycles et les évolutions dans le temps, offrant une lecture fluide et progressive du parcours étudié."
+                    tabindex="0">
+                    <input type="radio" name="choixMethode" id="ligne" value="1" checked
+                        aria-label="Méthode en ligne : addition des chiffres de gauche à droite">
+                    Méthode en ligne
+                </label>
+                <label class="has-tooltip"
+                    data-tooltip="La méthode verticale repose sur une lecture en profondeur des nombres, pris individuellement puis dans leur superposition. Elle met en lumière les fondations, les influences dominantes et les axes essentiels, révélant la structure interne et les enjeux fondamentaux."
+                    tabindex="0">
+                    <input type="radio" name="choixMethode" id="vertical" value="2"
+                        aria-label="Méthode verticale : lecture verticale par colonnes des chiffres">
+                    Méthode verticale
+                </label>
+            </div>
+
+            <p>Entrez votre date de naissance :</p>
+            <input type="date" name="date" id="date">
+
+            <div class="actions">
+                <button id="submitBtn">Calculer</button>
+            </div>
+
+            <div class="résultat"></div>
+        </div>
+    </main>
+    <footer>
+        <p>La numérologie est une pratique symbolique et intuitive destinée à l'introspection personnelle. Elle ne se
+            substitue en aucun cas à un avis médical, juridique ou professionnel.</p>
+        <p>© 2026 Numerologie. Tous droits réservés.</p>
+
+</body>
+
+</html>
