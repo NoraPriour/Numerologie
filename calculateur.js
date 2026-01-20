@@ -1,7 +1,10 @@
-const zoneResultat = document.querySelector(".résultat")
+const zoneResultat = document.querySelector(".resultat")
 let resultat = document.createElement("p")
 resultat.innerText = ``
+resultat.classList.add("fadeIn")
 
+
+//choix de la méthode (en ligne par défaut)
 let methodeChoisie = "Ligne"
 let listeBtnRadio = document.querySelectorAll(".choixMethode input")
 for (let i = 0; i < listeBtnRadio.length; i++) {
@@ -14,19 +17,26 @@ for (let i = 0; i < listeBtnRadio.length; i++) {
     })
 }
 
+//déclenchement du calcul et affichage du résultat au clic sur le bouton 'calculer'
 const submitBtn = document.getElementById("submitBtn")
 submitBtn.addEventListener("click", () => {
-    // fonction calcul
-    console.log(methodeEnLigne(divisionDeLaDate()), methodeVerticale(divisionDeLaDate()))
     if (methodeChoisie === "Ligne") {
-        // Use innerHTML to render the <em> tag
         resultat.innerHTML = `<strong>Chemin de vie <em>${methodeEnLigne(divisionDeLaDate())}</em></strong><br>${affichageResultat(methodeEnLigne(divisionDeLaDate()))}`
+        submitBtn.classList.add("ligne")
     } else {
-        // Use innerHTML so <br> becomes a line break
         resultat.innerHTML = `<strong>Chemin de vie <em>${methodeVerticale(divisionDeLaDate())}</em></strong><br>${affichageResultat(methodeVerticale(divisionDeLaDate()))}`
+        submitBtn.classList.add("vertical")
+    }
+    if (submitBtn.classList.contains("ligne") && submitBtn.classList.contains("vertical") && methodeEnLigne(divisionDeLaDate()) === methodeVerticale(divisionDeLaDate()) && zoneResultat.classList.contains("info")) {
+        let messageMemeResultat = document.createElement("a")
+        messageMemeResultat.setAttribute("href", "ensavoirplus.html#infoMemeResultat")
+        messageMemeResultat.setAttribute("class", "has-tooltip info-icon")
+        messageMemeResultat.setAttribute("data-tooltip", "Pourquoi ai-je obtenu deux fois le même résultat ?")
+        messageMemeResultat.innerText = "🛈"
+        zoneResultat.appendChild(messageMemeResultat)
+        zoneResultat.classList.remove("info")
     }
     zoneResultat.appendChild(resultat)
-
 })
 
 function divisionDeLaDate() {
@@ -79,9 +89,9 @@ function methodeVerticale(date) {
     } else {
         totalDay = dizaineDay + uniteDay
     }
-    if (month === 11 ) {
+    if (month === 11) {
         totalMonth = month
-    } else{
+    } else {
         totalMonth = dizaineMonth + uniteMonth
     }
     let totalYear = millierYear + centaineYear + dizaineYear + uniteYear
@@ -103,9 +113,9 @@ function methodeVerticale(date) {
 function affichageResultat(resultat) {
     if (resultat === 1) {
         texte = "Le chiffre 1 symbolise l'origine, l'unité et le principe créateur. Il représente l'élan initial, la volonté d'exister et la capacité à se définir par soi-même. C'est une énergie d'affirmation, d'indépendance et de leadership, souvent associée à l'action et à l'initiative. Le 1 invite à tracer sa propre voie et à assumer pleinement son individualité. Lorsqu'il est mal équilibré, il peut engendrer de l'ego, de l'autoritarisme ou un sentiment d'isolement."
-    } 
+    }
     else if (resultat === 2) {
-        texte = "Le chiffre 2 incarne la dualité, la relation et la complémentarité. Il symbolise l'écoute, la coopération et la recherche d'harmonie entre les opposés. C'est une énergie sensible, intuitive et réceptive, tournée vers l'autre et les liens affectifs. Le 2 favorise les partenariats, la diplomatie et la compréhension mutuelle. En déséquilibre, il peut conduire à l'indécision, à la dépendance émotionnelle ou à l'effacement de soi."    
+        texte = "Le chiffre 2 incarne la dualité, la relation et la complémentarité. Il symbolise l'écoute, la coopération et la recherche d'harmonie entre les opposés. C'est une énergie sensible, intuitive et réceptive, tournée vers l'autre et les liens affectifs. Le 2 favorise les partenariats, la diplomatie et la compréhension mutuelle. En déséquilibre, il peut conduire à l'indécision, à la dépendance émotionnelle ou à l'effacement de soi."
     }
     else if (resultat === 3) {
         texte = "Le chiffre 3 est associé à l'expression, à la créativité et à la communication. Il représente la joie de vivre, l'imagination et le besoin de partager. C'est une énergie expansive, sociale et inspirante, souvent liée à l'art, à la parole et à l'émotion. Le 3 encourage l'optimisme et la spontanéité dans l'expression personnelle. Mal canalisé, il peut se traduire par de la dispersion, un manque de profondeur ou une difficulté à se structurer."
@@ -123,7 +133,8 @@ function affichageResultat(resultat) {
         texte = "Le chiffre 7 symbolise l'introspection, la connaissance et la quête de vérité. Il représente la réflexion profonde, l'analyse et la spiritualité. C'est une énergie intérieure, discrète et contemplative, orientée vers la compréhension du sens caché des choses. Le 7 invite à se détacher du superficiel pour accéder à une sagesse plus profonde. À l'excès, il peut engendrer isolement, froideur émotionnelle ou scepticisme excessif."
     }
     else if (resultat === 8) {
-        texte = "Le chiffre 8 incarne le pouvoir, l'autorité et la maîtrise du monde matériel. Il symbolise la réussite, l'ambition et la capacité à gérer les responsabilités. C'est une énergie de concrétisation, de contrôle et d'équilibre entre le spirituel et le matériel. Le 8 invite à utiliser le pouvoir avec justesse et discernement. En déséquilibre, il peut devenir dominateur, rigide ou obsédé par le succès."    }
+        texte = "Le chiffre 8 incarne le pouvoir, l'autorité et la maîtrise du monde matériel. Il symbolise la réussite, l'ambition et la capacité à gérer les responsabilités. C'est une énergie de concrétisation, de contrôle et d'équilibre entre le spirituel et le matériel. Le 8 invite à utiliser le pouvoir avec justesse et discernement. En déséquilibre, il peut devenir dominateur, rigide ou obsédé par le succès."
+    }
     else if (resultat === 9) {
         texte = "Le chiffre 9 représente l'accomplissement, la sagesse et la fin d'un cycle. Il symbolise l'altruisme, la compassion et la transmission. C'est une énergie tournée vers l'humanité, le don de soi et la compréhension globale. Le 9 invite au détachement et à l'élévation intérieure. Mal intégré, il peut mener à la mélancolie, au désenchantement ou à une difficulté à lâcher prise."
     }
