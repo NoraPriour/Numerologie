@@ -17,12 +17,22 @@
     <title>Numerologie</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="calculateur.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <header>
-        <h1>Numérologie</h1>
-        <h3>Une étude divinatoire basée sur la symbolique des nombres.</h3>
+        <button id="hamburgerMenu"><i class="fa-solid fa-bars"></i></button>
+        <nav id="menu" class="hidden">
+            <a href="index.html">Accueil</a>
+            <a href="ensavoirplus.html">En savoir plus</a>
+            <a href="touslesresultats.html">Tous les résultats</a>
+        </nav>
+        <div class="titre">
+            <h1>Numérologie</h1>
+            <h3>Une étude divinatoire basée sur la symbolique des nombres.</h3>
+        </div>
     </header>
     <main class="hero-bg">
         <div class="texteNumerologie">
@@ -38,7 +48,7 @@
                 symbolique et intuitive pour mieux comprendre les influences qui jalonnent votre parcours.</p>
 
         </div>
-        <div class="container">
+        <div class="container" id="calculateur">
             <p>Choisissez votre méthode de calcul :</p>
             <div class="choixMethode">
                 <label class="has-tooltip"
@@ -55,6 +65,8 @@
                         aria-label="Méthode verticale : lecture verticale par colonnes des chiffres">
                     Méthode verticale
                 </label>
+                <a href="ensavoirplus.html" class="has-tooltip info-icon"
+                    data-tooltip="En savoir plus sur les méthodes">🛈</a>
             </div>
 
             <p>Entrez votre date de naissance :</p>
@@ -71,7 +83,7 @@
         <p>La numérologie est une pratique symbolique et intuitive destinée à l'introspection personnelle. Elle ne se
             substitue en aucun cas à un avis médical, juridique ou professionnel.</p>
         <p>© 2026 Numerologie. Tous droits réservés.</p>
-
+    </footer>
 </body>
 
 </html>
